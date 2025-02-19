@@ -1,11 +1,10 @@
-import { Housinglocation } from './housinglocation';
-import { Injectable } from '@angular/core';
+import { Housinglocation } from "./housinglocation";
+import { Injectable } from "@angular/core";
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: "root",
 })
 export class HousingService {
-
   protected housingLocationList: Housinglocation[] = [
     {
       id: 0,
@@ -108,14 +107,22 @@ export class HousingService {
       laundry: true,
     },
   ];
-  constructor() { }
+  constructor() {}
 
   getAllHousingLocations(): Housinglocation[] {
     return this.housingLocationList;
   }
 
   getHousingLocationById(id: number): Housinglocation | undefined {
-    return this.housingLocationList.find((housingLocation) => housingLocation.id === id)!;
+    return this.housingLocationList.find(
+      (housingLocation) => housingLocation.id === id
+    )!;
   }
 
+  submitApplication(firstName: string, lastName: string, email: string): void {
+    console.log(
+      `Application submitted for ${firstName} ${lastName} at ${email}`
+    );
+    console.log(firstName, lastName, email);
+  }
 }
